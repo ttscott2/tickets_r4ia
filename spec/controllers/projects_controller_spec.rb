@@ -14,7 +14,7 @@ RSpec.describe ProjectsController, type: :controller do
     allow(controller).to receive(:current_user)
 
     project = FactoryGirl.create(:project)
-    get :show, id: project
+    get :show, params: { id: project }
 
     expect(response).to redirect_to(root_path)
     message = "You aren't allowed to do that."
